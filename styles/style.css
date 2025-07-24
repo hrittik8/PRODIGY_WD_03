@@ -1,0 +1,195 @@
+@import url("../styles/icons.css");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  background-image: url("../assets/background.jpg"); /* make sure this path is correct */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  background-color: #030716;
+  color: white;
+  height: 100dvh;
+  width: 100vw;
+  position: relative;
+}
+
+/* navigation bar */
+nav {
+  height: 10dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  max-width: 400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.reset,
+.setting {
+  font-weight: bolder;
+  position: absolute;
+  cursor: pointer;
+}
+.reset {
+  right: 25px;
+}
+.setting {
+  left: 25px;
+  color: rgb(144, 49, 222);
+}
+
+/* player stat container */
+.p-stat-container {
+  height: 15dvh;
+  display: flex;
+  justify-content: space-around;
+  gap: 4rem;
+  padding: 10px 30px;
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+.p-o-stat,
+.p-x-stat {
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+/* game board */
+.game-board {
+  height: 65dvh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.row1, .row2, .row3 {
+  display: flex;
+}
+
+.box {
+  border: 1px solid rgba(255, 255, 255, 0.286);
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 300ms, box-shadow 300ms, transform 200ms;
+}
+
+.box:hover {
+  background-color: rgba(110, 95, 66, 0.525);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+/* whose turn */
+.whose-turn {
+  height: 10dvh;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.whose-turn p {
+  position: absolute;
+  bottom: 40px;
+}
+
+/* modal box */
+.model-box-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+}
+
+.model-box {
+  border: 2px solid;
+  width: 200px;
+  padding: 10px 0;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.github {
+  font-size: 40px;
+  color: rgb(183, 0, 255);
+}
+
+.version {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.636);
+}
+
+.model-box > button {
+  width: 90%;
+  margin-top: 10px;
+  background-color: #212121;
+  outline: none;
+  border: 2px rgb(124, 17, 157) solid;
+  padding: 5px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color: white;
+  transition: 0.3s ease;
+}
+.model-box > button:hover {
+  background-color: #2d2d2d;
+  box-shadow: 0 0 8px #7c119d;
+}
+/* Default glow for dark mode */
+.game-board.dark-mode {
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(0, 200, 255, 0.6), 0 0 30px rgba(0, 200, 255, 0.4);
+  transition: box-shadow 0.4s ease;
+}
+
+/* Subtle outline for light mode */
+.game-board.light-mode {
+  border-radius: 20px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.4s ease;
+}
+.game-board.dark-mode:hover {
+  box-shadow: 0 0 20px rgba(0, 200, 255, 0.9), 0 0 40px rgba(0, 200, 255, 0.6);
+}

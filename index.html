@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="./scripts/script.js" defer></script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/icons/favicon-16x16.png" />
+    <link rel="manifest" href="./assets/icons/site.webmanifest" />
+    <link rel="mask-icon" href="./assets/icons/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="shortcut icon" href="./assets/icons/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-config" content="./assets/icons/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Tic Tac Toe</title>
+    <style>
+      .game-board {
+  background: rgba(56, 15, 102, 0.861);
+  border-radius: 20px;
+  padding: 10px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgb(255, 255, 255);
+  box-shadow: 0 8px 32px rgba(135, 94, 231, 0.717);
+}
+      #model-box-container {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 999;
+        justify-content: center;
+        align-items: center;
+      }
+      #model-box {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+      }
+      .setting {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <p class="name">Tic Tac Toe</p>
+      <span class="reset" id="reset"></span>
+      <span class="setting" id="setting">⚙️</span>
+    </nav>
+
+    <!-- player stat -->
+    <div class="p-stat-container">
+      <div class="p-o-stat">
+        <p>Player O</p>
+        <p id="p-o-score">0</p>
+      </div>
+      <div class="p-x-stat">
+        <p>Player X</p>
+        <p id="p-x-score">0</p>
+      </div>
+    </div>
+
+    <!-- game board -->
+    <div class="game-board" id="game-board">
+      <div class="row1">
+        <div id="box1" class="box1 box"></div>
+        <div id="box2" class="box2 box"></div>
+        <div id="box3" class="box3 box"></div>
+      </div>
+      <div class="row2">
+        <div id="box4" class="box4 box"></div>
+        <div id="box5" class="box5 box"></div>
+        <div id="box6" class="box6 box"></div>
+      </div>
+      <div class="row3">
+        <div id="box7" class="box7 box"></div>
+        <div id="box8" class="box8 box"></div>
+        <div id="box9" class="box9 box"></div>
+      </div>
+    </div>
+
+    <!-- whose turn notifier -->
+    <div class="whose-turn">
+      <p>Turn of <span id="whose-turn">X</span></p>
+    </div>
+
+    <!-- model box for setting and version -->
+    <div id="model-box-container">
+      <div id="model-box">
+        <h3 style="margin-bottom: 10px; color: #000000;">Settings</h3>
+
+        <!-- Mode Switch -->
+        <div class="mode-toggle" style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+          <label id="mode-label" for="mode-switch" style="font-size: 1rem; color: #6f1caf;">🧠 AI Mode</label>
+          <input type="checkbox" id="mode-switch" checked style="width: 18px; height: 18px;" />
+        </div>
+
+        <!-- Mute Switch -->
+        <div id="mute" class="mute-btn">
+          <span id="mute-icon" class="not-in-mute" style="color: #673AB7;"><h1>🔊</h1></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Winner Modal -->
+    <div id="winner-modal" style="display: none; position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%; background: rgba(0,0,0,0.7); justify-content: center; align-items: center; z-index: 1000;">
+      <div style="background: white; padding: 30px; border-radius: 10px; text-align: center;">
+        <h2 id="winner-text" style="font-size: 2rem; margin-bottom: 10px;"></h2>
+        <button id="close-modal" style="padding: 10px 20px;">Close</button>
+      </div>
+    </div>
+  </body>
+</html>
